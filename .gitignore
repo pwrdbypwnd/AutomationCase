@@ -1,19 +1,27 @@
-# Python cache and compile files
+# Python cache and build files
 __pycache__/
 *.pyc
+*.pyo
 
-# Virtual Env. Files
+# Virtual environment files
 .venv/
 env/
-*.env
+
+# ScreenShot
+ScreenShot/
+Fail/
+Success/
+
+# Environment variables
+.env
 
 # IDE and editor files
 .idea/
 .vscode/
+*.sublime-workspace
+*.sublime-project
 
-# ScreenShot Files
-ScreenShot/
-
-# Os Files
-.DS_Store
-Thumbs.db
+# Log and temp files
+*.log
+*.tmp
+*.bak
