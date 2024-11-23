@@ -1,2 +1,10 @@
 # insider
-Study Cases
+Study Cases - Insider UI and API Test Automation
+
+
+
+Python Installation  : 
+
+
+Package installation : 
+pip install -r requirements.txt
