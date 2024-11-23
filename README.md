@@ -31,17 +31,22 @@ This project is designed to automate UI and API testing for the **Insider** webs
 ## **🗂️ Project Structure**
 
 ```plaintext
-InsiderUIandApiTest/
+InsiderAutomation/
 │
-├── driver.py           # WebDriver initialization and browser management.
-├── pages.py            # Page actions and interactions.
-├── helpers.py          # Helper functions for screenshot handling and more.
-├── test_insider.py     # Test cases for UI validation.
-├── ScreenShot/         # Screenshots folder (organized into `Success` and `Failure`).
-├── .env                # Environment variables (e.g., browser selection).
-├── .gitignore          # Files and folders to exclude from Git.
-├── requirements.txt    # Python dependencies.
-├── README.md           # Project documentation (this file).
+├── pages/
+│   ├── base_page.py          # Base class for common page operations
+│   ├── home_page.py          # Handles operations for the homepage
+│   ├── careers_page.py       # Handles operations for the careers page
+├── tests/
+│   ├── test_insider.py       # Contains test scenarios
+├── helpers/
+│   ├── utils.py              # Helper functions (e.g., taking screenshots)
+├── driver.py                 # WebDriver initialization and management
+├── requirements.txt          # Project dependencies
+├── .env                      # Environment variables (e.g., browser selection)
+├── README.md                 # Project documentation
+
+
 ```
 
 ---
