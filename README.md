@@ -114,8 +114,9 @@ ScreenShot/
 
 | Test Case                | Result  | Screenshot Location        |
 |--------------------------|---------|----------------------------|
-| Homepage Logo Visibility | Success | `ScreenShot/Success/`      |
-| Homepage Title Check     | Fail | `ScreenShot/Fail/`      |
+| Homepage Logo Visibility | ✅ Success | `ScreenShot/Success/test_home_page_logo_2024-11-21_15-00-00.png` |
+| Homepage Title Check     | ❌ Failure | `ScreenShot/Failure/test_home_page_title_2024-11-21_15-03-00.png` |
+
 
 ---
 
