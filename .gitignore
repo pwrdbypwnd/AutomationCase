@@ -1,0 +1,19 @@
+# Python cache and compile files
+__pycache__/
+*.pyc
+
+# Virtual Env. Files
+.venv/
+env/
+*.env
+
+# IDE and editor files
+.idea/
+.vscode/
+
+# ScreenShot Files
+ScreenShot/
+
+# Os Files
+.DS_Store
+Thumbs.db
