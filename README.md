@@ -31,20 +31,27 @@ This project is designed to automate UI and API testing for the **Insider** webs
 ## **🗂️ Project Structure**
 
 ```plaintext
+
 InsiderAutomation/
 │
-├── pages/
-│   ├── base_page.py          # Base class for common page operations
-│   ├── home_page.py          # Handles operations for the homepage
-│   ├── careers_page.py       # Handles operations for the careers page
-├── tests/
-│   ├── test_insider.py       # Contains test scenarios
-├── helpers/
-│   ├── utils.py              # Helper functions (e.g., taking screenshots)
-├── driver.py                 # WebDriver initialization and management
-├── requirements.txt          # Project dependencies
-├── .env                      # Environment variables (e.g., browser selection)
-├── README.md                 # Project documentation
+├── pages/                       # Sayfa işlemleri ve etkileşimleri
+│   ├── base_page.py             # Ortak işlemler için temel sınıf
+│   ├── home_page.py             # Ana sayfa işlemleri
+│   ├── careers_page.py          # Kariyer sayfası işlemleri
+│   ├── locators.py              # Tüm sayfaların XPath ve CSS seçicileri
+│
+├── tests/                       # Test senaryoları
+│   ├── test_insider.py          # UI test senaryoları
+│
+├── helpers/                     # Yardımcı fonksiyonlar
+│   ├── utils.py                 # Ekran görüntüsü ve diğer yardımcı araçlar
+│
+├── driver.py                    # WebDriver başlatma ve yönetim
+├── requirements.txt             # Gerekli bağımlılıkların listesi
+├── .env                         # Çevresel değişkenler (tarayıcı seçimi vb.)
+├── README.md                    # Proje dokümantasyonu
+├── .gitignore                   # Git tarafından yok sayılacak dosyalar
+├── ScreenShot/                  # Ekran görüntüleri (başarılı ve başarısız testler için)
 
 
 ```
