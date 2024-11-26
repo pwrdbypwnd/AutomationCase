@@ -1,185 +1,128 @@
+# Save the provided README content to a markdown file
 
 # **📌 Insider Automation**
 
 Welcome to the **Insider Automation Project**!  
-This project is designed to automate UI and API testing for the **Insider** website. Built with **Python** and **Selenium**, the tests are executed using the `unittest` framework, capturing screenshots for both **success** and **failure** scenarios.
+This project automates UI testing and n11-Load Test for the **Insider** careers website using **Python**, **Selenium**, **locust** and **unittest**. Designed for efficiency, it organizes tests with structured execution, including screenshots for success and failure scenarios.
 
 ---
 
 ## **📋 Features**
 
-```plaintext
-============================================================
-🎯 UI Tests
-    ✔ Validate the homepage logo visibility.
-    ✔ Verify the correctness of the page title.
-============================================================
-📸 Screenshot Management
-    ✔ Screenshots for both success and failure scenarios.
-    ✔ Organized into separate folders: `Success` and `Failure`.
-============================================================
-🛠 Single Browser Session
-    ✔ All tests run within a single browser session.
-============================================================
-⚙️ Easy Configuration
-    ✔ Browser selection via `.env` file.
-============================================================
-```
+- **UI Tests:**
+  - Verify homepage logo visibility
+  - Validate the page title correctness
+  - Automate dropdown interactions (e.g., location and department filters)
+  - Verify "View Role" button links
+- **Dynamic Dropdown Selection:**
+  - Adaptable to dynamic IDs and text-based selection
+- **Screenshot Management:**
+  - Automatic saving of success/failure screenshots
+  - Organized in `ScreenShot/Success` and `ScreenShot/Fail`
+- **Session Management:**
+  - Single browser session for all tests
+- **Configuration:**
+  - Browser and test setup configurable via `.env`
 
 ---
 
 ## **🗂️ Project Structure**
 
 ```plaintext
-InsiderUIandApiTest/
+InsiderAutomation/
 │
-├── driver.py           # WebDriver initialization and browser management.
-├── pages.py            # Page actions and interactions.
-├── helpers.py          # Helper functions for screenshot handling and more.
-├── test_insider.py     # Test cases for UI validation.
-├── ScreenShot/         # Screenshots folder (organized into `Success` and `Failure`).
-├── .env                # Environment variables (e.g., browser selection).
-├── .gitignore          # Files and folders to exclude from Git.
-├── requirements.txt    # Python dependencies.
-├── README.md           # Project documentation (this file).
-```
+├── .env                # Environment variables
+├── README.md           # Project documentation
+├── requirements.txt    # Python dependencies
+│
+├── studyCase/
+│   ├── locust/         #n11 load test
+│   ├── helpers/
+│   │   └── utils.py    # Utility functions 
+│   │
+│   ├── pages/
+│   │   ├── base.py       # Base class for common WebDriver operations
+│   │   ├── careers_page.py  # Actions specific to the Careers page
+│   │   ├── home_page.py     # Actions specific to the Home page
+│   │   └── locators.py      # Centralized element locators
+│
+├── ScreenShot/
+│   ├── Fail/           # Failed test screenshots
+│   └── Success/        # Successful test screenshots
+│
+├── driver.py           # WebDriver initialization
+├── mainTest.py         # Test cases using unittest
+│
+└── .gitignore          # Ignore files for Git
 
----
 
-## **📦 Setup**
 
-### **1️⃣ Install Dependencies**
-Install the required Python packages:
-```bash
+📦 Setup
+1️⃣ Install Dependencies
+
 pip install -r requirements.txt
-```
 
-### **2️⃣ Configure `.env` File**
-Create a `.env` file in the root directory and specify the browser:
-```plaintext
+2️⃣ Configure .env File
+
 BROWSER=chrome
-```
 
-### **3️⃣ Run the Tests**
-Execute the test suite:
-```bash
-python test_insider.py
-```
+3️⃣ Run Tests
 
----
+UI :
+python mainTest.py
 
-## **🛠 Workflow**
+Load Test :
+locust -f load_test.py --host=https://www.n11.com
 
-```plaintext
-1️⃣ Initialize WebDriver
-2️⃣ Perform UI tests:
-   - Check homepage logo visibility.
-   - Verify page title correctness.
-3️⃣ Take screenshots:
-   - Success: Saved in `ScreenShot/Success`.
-   - Failure: Saved in `ScreenShot/Failure`.
-4️⃣ Close browser session after all tests.
-```
 
----
+🛠 Workflow
 
-## **📑 Test Scenarios**
+Test Execution Steps:
 
-### **✅ Homepage Logo Test**
-- **Objective:** Verify the visibility of the homepage logo.
-- **Locator:** `//img[@alt='insider_logo']`
+Initialize WebDriver
 
-### **✅ Homepage Title Test**
-- **Objective:** Validate the title of the homepage.
-- **Expected Title:** `#1 Leader in Individualized, Cross-Channel CX — Insider`
+Perform UI tests:
+Verify homepage logo and title
+Navigate to Careers and interact with dropdowns
+Verify "View Role" links
 
----
 
-## **📸 Screenshot Organization**
+Take and save screenshots:
 
-```plaintext
+Success: ScreenShot/Success
+Failure: ScreenShot/Fail
+End the browser session
+
+📑 Test Scenarios
+
+Homepage Tests:
+
+Verify logo visibility using alt='insider_logo'
+Check title matches Ready to disrupt? | Insider Careers
+Dropdown Interaction:
+
+Open location dropdown and select "Istanbul, Turkey"
+Ensure department dropdown defaults to "Quality Assurance" or select it
+
+View Role Validation:
+
+Verify "View Role" button links match expected URLs
+Open and validate URLs in new tabs
+
+📸 Screenshot Examples
+
 ScreenShot/
 ├── Success/
-│   ├── test_home_page_logo_2024-11-21_15-00-00.png
-│   ├── test_home_page_title_2024-11-21_15-02-00.png
-│
-├── Failure/
-    ├── test_home_page_logo_2024-11-21_15-01-00.png
-    ├── test_home_page_title_2024-11-21_15-03-00.png
-```
+│   └── test_home_page_logo_2024-11-26.png
+└── Fail/
+    └── test_dropdown_interaction_2024-11-26.png
+🔮 Future Plans
 
----
+Add API tests for Swagger endpoints
+Integrate Allure for test reporting
+Introduce CI/CD pipelines for automated testing
+Expand to include performance and load testing tools like Locust or JMeter
 
-## **📚 Example Output**
+💡 Why This Project?
+This project streamlines QA processes with structured tests, configurable setups, and detailed results, enabling effective test automation for dynamic web applications. """
 
-| Test Case                | Result  | Screenshot Location        |
-|--------------------------|---------|----------------------------|
-| Homepage Logo Visibility | ✅ Success | `ScreenShot/Success/test_home_page_logo_2024-11-21_15-00-00.png` |
-| Homepage Title Check     | ❌ Failure | `ScreenShot/Failure/test_home_page_title_2024-11-21_15-03-00.png` |
-
-
----
-
-## **🔮 Future Enhancements**
-
-### 🔧 Planned Features
-- **API Tests:**
-  - CRUD operations for Swagger PetStore.
-  - Positive and negative test scenarios.
-- **Load Testing:**
-  - Using JMeter or Locust for performance evaluation.
-- **Reporting:**
-  - Integrate Allure for detailed test reports.
-
----
-
-## **🔗 Contribution Guidelines**
-
-We welcome contributions! Follow these steps:
-
-1. **Fork the repository.**
-2. **Create a feature branch:**
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
-3. **Commit your changes:**
-   ```bash
-   git commit -m "Add your feature description here."
-   ```
-4. **Push to the branch:**
-   ```bash
-   git push origin feature/your-feature-name
-   ```
-5. **Create a pull request!**
-
----
-
-## **📜 License**
-This project is open-source and free to use. Use at your own discretion.
-
----
-
-## **📂 Project Schema**
-
-```plaintext
-    ┌────────────────────────────────────────┐
-    │          Insider Automation           │
-    └────────────────────────────────────────┘
-                  ▲             ▲
-                  │             │
-    ┌────────────┴─────────────┴────────────┐
-    │                                       │
-┌───────────┐                      ┌────────────────┐
-│ Driver.py │                      │  Pages.py      │
-└───────────┘                      └────────────────┘
-      ▲                                  ▲
-      │                                  │
-┌──────────────┐                  ┌──────────────────┐
-│ Test Suite   │ <──────────────> │ Helpers (Utils)  │
-└──────────────┘                  └──────────────────┘
-```
-
----
-
-## **💡 Why This Project?**
-This project simplifies automated testing for web applications. With structured tests, configurable settings, and detailed results, it ensures both clarity and efficiency in QA workflows.

@@ -1,3 +1,4 @@
 selenium #@latest
 requests #@latest
 python-dotenv #@latest
+locust #@latest
