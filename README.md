@@ -1,5 +1,3 @@
-# Save the provided README content to a markdown file
-
 # **📌 Insider Automation**
 
 Welcome to the **Insider Automation Project**!  
