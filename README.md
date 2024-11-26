@@ -1,7 +1,7 @@
 # **📌 Insider Automation**
 
 Welcome to the **Insider Automation Project**!  
-This project automates UI testing and n11-Load Test for the **Insider** careers website using **Python**, **Selenium**, **locust** and **unittest**. Designed for efficiency, it organizes tests with structured execution, including screenshots for success and failure scenarios.
+This project automates UI testing and n11-Load Test for n11_search and for the **Insider** careers website using **Python**, **Selenium**, **locust** and **unittest**. Designed for efficiency, it organizes tests with structured execution, including screenshots for success and failure scenarios.
 
 ---
 
