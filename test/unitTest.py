@@ -14,7 +14,7 @@ class TestInsider(unittest.TestCase):
         try:
             self.assertTrue(
                 self.insider_page.verify_home_page_logo(),
-                "Ana sayfa logosu görüntülenemedi!"
+                "Main page appearance failed!"
             )
             take_screenshot(self.driver, "test_home_page_logo", success=True)
         except Exception as e:
@@ -27,7 +27,7 @@ class TestInsider(unittest.TestCase):
         try:
             self.assertTrue(
                 self.insider_page.verify_page_title(expected_title),
-                f"Sayfa başlığı beklenen ile eşleşmiyor! Beklenen: {expected_title}"
+                f"Unmatched failed, expected : {expected_title}"
             )
             take_screenshot(self.driver, "test_home_page_title", success=True)
         except Exception as e:
@@ -36,7 +36,6 @@ class TestInsider(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        # Tarayıcıyı bir kere kapat
         cls.driver.quit()
 
 if __name__ == "__main__":
