@@ -12,7 +12,6 @@ class InsiderPage:
 
     def verify_home_page_logo(self):
         try:
-            # Explicit wait ile logoyu bekle
             logo = WebDriverWait(self.driver, 10).until(
                 EC.visibility_of_element_located((By.XPATH, InsiderLocators.HOMEPAGE_LOGO))
             )
@@ -22,12 +21,9 @@ class InsiderPage:
             return False
 
     def verify_page_title(self, expected_title):
-        """
-        Sayfa başlığını kontrol eder.
-        """
         try:
             actual_title = self.driver.title
             return actual_title == expected_title
         except Exception as e:
-            print(f"Başlık kontrolü sırasında hata: {e}")
+            print(f"Header check failed : {e}")
             return False
