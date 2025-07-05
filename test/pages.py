@@ -17,7 +17,7 @@ class InsiderPage:
             )
             return logo.is_displayed()
         except Exception as e:
-            print(f"Logo bulunamadı veya görünür değil: {e}")
+            print(f"Couldn't find the logo or won't appear properly : {e}")
             return False
 
     def verify_page_title(self, expected_title):
